@@ -1,0 +1,65 @@
+.profile__section {
+    margin-top: 15px;
+    /* margin-left: 40px;
+    margin-right: 40px; */
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.profile__img {
+    border: 2px solid purple;
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.copy__address {
+    height: 30px;
+}
+
+.img__div {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    border: 1px solid transparent;
+    text-decoration: none;
+    outline: none;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRGhTd_bdCvnt-895Oo8aPqNLfTyL48vVx83g&usqp=CAU');
+    background-position: center center;
+    background-size: cover;
+}
+
+.address__edit {
+    display: flex;
+    flex-direction: column;
+    margin-top: -60px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    height: max-content;
+    width: max-content;
+}
+
+.diff__sections {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: max-content;
+    color: white;
+}
+
+.diff__sections > ul {
+    cursor: pointer;
+}
+
+.activities__space {
+    margin-top: 20px;
+    margin-left: 40px;
+    margin-right: 20px;
+}
+

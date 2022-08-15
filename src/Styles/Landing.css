@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap');
+
+.landing__section {
+    margin-left: 40px;
+    margin-right: 40px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100vh;
+}
+
+.landing__row {
+    display: flex;
+    flex-direction: row;
+}
+
+.nft__img {
+    width: 450px;
+    margin-right: 60px;
+}
+
+.intro__text {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 80px;
+    font-weight: 300;
+    color: white;
+    width: 800px;
+    margin-top: 10px;
+    padding-left: 19px;
+}
+
+.intro__descp {
+    color:white;
+    padding-left: 19px;
+    margin-top: -40px;
+    font-size: 28px;
+    width: 800px;
+}
+
+.grp__btn {
+    margin-left: 19px;
+    margin-top: -20px;
+}
+
+.explore__btn {
+    height: 40px;
+    width: 180px;
+    font-size: 20px;
+    font-weight: 550;
+    background-color: white;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 10px;
+}
+
+.collection__btn {
+    margin-left: 20px;
+    height: 40px;
+    width: 180px;
+    font-size: 18px;
+    font-weight: 550;
+    cursor: pointer;
+    color: white;
+    border-radius: 10px;
+    text-decoration: none;
+    background-color: #3e00b3;
+    outline: none;
+    border: 1px solid white;
+}

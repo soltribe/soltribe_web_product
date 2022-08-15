@@ -1,0 +1,113 @@
+.signup_page {
+    margin-top: 15px;
+    margin-left: 40px;
+    margin-right: 40px;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.signup__logo {
+    display: flex;
+    flex-direction: row;
+    margin-left: 30px;
+}
+
+.signup__main {
+    margin-top: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    min-height: max-content;
+    width: 420px;
+}
+
+input[type=text]:hover{
+    box-shadow: 0 0 5pt 0.5pt #D3D3D3;
+}
+
+input[type=text]:focus {
+    box-shadow: 0 0 5pt 2pt #D3D3D3;
+    outline-width: 0px;
+}
+
+.sign-text {
+    color: white;
+    margin-top: -5px;
+}
+
+.sign-descp {
+    margin-top: -10px;
+}
+
+.img__upload {
+    display: flex;
+    flex-direction: column;
+    border-radius: 50%;
+    position: relative;
+    /* behavior: url(PIE.htc); */
+    background-color: white;
+    width: 60px;
+    height: 60px;
+    margin-left: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin-right: auto;
+    cursor:pointer;
+    /* margin-bottom: -15px; */
+}
+
+.preview__img {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.input__user {
+    width: 382px;
+    height: 40px;
+    text-decoration: none;
+    outline: none;
+    border-radius: 5px;
+    font-size: 12.6pt;
+    border: solid 1.5px #D3D3D3;
+    -webkit-transition: 1s; /* Safari */
+    transition: 1s;
+}
+
+.description-field {
+    margin-top: 15px;
+    font-size: 10pt;
+    text-decoration: none;
+    outline: none;
+    border-radius: 5px;
+    resize: none;
+}
+
+.description-field:hover {
+    box-shadow: 0 0 5pt 0.5pt #D3D3D3;
+}
+
+.description-field:focus {
+    box-shadow: 0 0 5pt 2pt #D3D3D3;
+    outline-width: 0px;
+}
+
+.create__btn {
+    height: 45px;
+    width: 385px;
+    color:white;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #3e00b3;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-decoration: none;
+    font-size: 25px;
+    outline: none;
+    border: 1px solid transparent;
+}
