@@ -12,7 +12,7 @@ const opts = {
 
 export const ProviderContext = React.createContext();
 
-const getProvider = (children) => {
+const GetProvider = (children) => {
     const [provider, setProvider] = useState(null);
     const [program, setProgram] = useState(null);
     useEffect(() => {
