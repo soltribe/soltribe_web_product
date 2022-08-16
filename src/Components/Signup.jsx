@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import {FiUpload } from 'react-icons/fi';
 import {useConnection, useWallet} from '@solana/wallet-adapter-react';
 import * as solanaWeb3 from '@solana/web3.js';
-import idl from '../soltribe.json';
+import idl from '../idl/soltribe.json';
 import {ProviderContext} from '../utils/provider';
 import {
     generateCreatorPDA,
@@ -24,12 +24,14 @@ const Signup = (props) => {
     const [program , provider] = useContext(ProviderContext);
     const [CID, setCID] = useState('');
     const [URI, setURI] = useState('');
+    const [filetype, setFileType] = useState('');
 
     function onFileChange(e) {
         const file = e.target.files[0];
         //console.log(e.target.files);
         if (file) {
             const image = URL.createObjectURL(file);
+            setFileType(image.type);
             setImage(image);
             let reader = new FileReader();
             reader.onload = function () {
@@ -51,7 +53,7 @@ const Signup = (props) => {
     /// do you know how to retrieve that?
 
     const handleUpload = async() => {
-        const res = await uploadFile(file);
+        const res = await uploadFile(file, filetype);
         console.log('res.data: ', res.data);
         // The id of our uploaded content, the 3rd argument in the createAccount function
         // and gets stored on the blockchain
