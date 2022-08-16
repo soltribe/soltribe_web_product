@@ -45,7 +45,7 @@ const Signup = (props) => {
                     <form class="my-form">
                        <textarea className="description-field" value={descriptiontext} onChange={(e) => setDescriptionText(e.target.value)} name="msg" rows="5" cols="50" placeholder="Tell us a little about yourself"></textarea>
                     </form>
-                    <button className='create__btn'>Create Account</button>
+                    <button className='create__btn' onClick = {createAccount}>Create Account</button>
                 </div>
             </div>
         </div>
