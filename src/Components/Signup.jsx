@@ -72,13 +72,13 @@ const Signup = (props) => {
                 creatorAccount: creatorAccount
             })
             .rpc();
-            setFile('');
-            setUserName('');
-            setDescriptionText('');
         } catch(_err) {
             console.log(_err);
             // do something here
         }
+        setFile('');
+        setUserName('');
+        setDescriptionText('');
     }
 
     return (
