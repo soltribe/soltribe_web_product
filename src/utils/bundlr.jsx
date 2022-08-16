@@ -5,10 +5,10 @@ import { useToast } from '@chakra-ui/react';
 
 export const BundlrContext = React.createContext();
 
-const BundlrContext = ({children}) => {
+const BundlrProvider = ({children}) => {
     const toast = useToast();
     const [bundlrInstance, setBundlrInstance] = useState();
-    //const [balance, setBalance] = useState('');
+    // const [balance, setBalance] = useState('');
     //const [cost, setCost] = useState('');
 
     useEffect(() => {
@@ -17,7 +17,7 @@ const BundlrContext = ({children}) => {
         }
     }, [bundlrInstance])
 
-    const initializeBundlr = async () => {
+    const InitializeBundlr = async () => {
         const [provider, _] = useContext(ProviderContext);
         const bundlr = new WebBundlr(
             "https://devnet.bundlr.network",
@@ -60,7 +60,7 @@ const BundlrContext = ({children}) => {
     }
 
     function parseInput(input) {
-        const conv = new BigNumber(input).multipliedBy(bundlrInstance.currencyConfig.base[1])
+        const conv = new Number(input).multipliedBy(bundlrInstance.currencyConfig.base[1])
         if (conv.isLessThan(1)) {
             console.log('error: value too small')
             toast({
@@ -107,13 +107,13 @@ const BundlrContext = ({children}) => {
     }
 
     return (
-        <BundlrContext.Provider value={{ initializeBundlr, fundWallet, uploadFile, bundlrInstance}}>
+        <BundlrContext.Provider value={{ InitializeBundlr, fundWallet, uploadFile, bundlrInstance}}>
             {children}
         </BundlrContext.Provider>
     )
 }
 
-export default BundlrContext;
+export default BundlrProvider;
 
 export const useBundlr = () => {
     return useContext(BundlrContext);

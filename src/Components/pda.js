@@ -1,7 +1,7 @@
 import {WebBundlr, Bundlr} from "@bundlr-network/client";
 import * as fs from "fs";
 import * as anchor from '@project-serum/anchor';
-import { Solomon } from "../target/types/solomon";
+import { Soltribe } from "../target/types/soltribe";
 //import * as spl from '@solana/spl-token';
 
 export const ArtType = {

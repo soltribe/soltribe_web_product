@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
 import '../Styles/Signup.css';
 import Header from './Header';
 import logo from '../Assets/solomon.png';
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import {FiUpload } from 'react-icons/fi';
 import {useConnection, useWallet} from '@solana/wallet-adapter-react';
 import * as solanaWeb3 from '@solana/web3.js';
-import idl from '../soltribe.json';
+import idl from '../idl/soltribe.json';
 import {ProviderContext} from '../utils/provider';
 import {
     generateCreatorPDA,
@@ -24,13 +24,15 @@ const Signup = (props) => {
     const [program , provider] = useContext(ProviderContext);
     const [CID, setCID] = useState('');
     const [URI, setURI] = useState('');
+    const [filetype, setFileType] = useState('');
 
     function onFileChange(e) {
         const file = e.target.files[0];
         //console.log(e.target.files);
         if (file) {
             const image = URL.createObjectURL(file);
-            setImage(image);
+            setFileType(image.type);
+            //setImage(image);
             let reader = new FileReader();
             reader.onload = function () {
                 if(reader.result) {
@@ -51,7 +53,7 @@ const Signup = (props) => {
     /// do you know how to retrieve that?
 
     const handleUpload = async() => {
-        const res = await uploadFile(file);
+        const res = await uploadFile(file, filetype);
         console.log('res.data: ', res.data);
         // The id of our uploaded content, the 3rd argument in the createAccount function
         // and gets stored on the blockchain
@@ -76,6 +78,9 @@ const Signup = (props) => {
             console.log(_err);
             // do something here
         }
+        setFile('');
+        setUserName('');
+        setDescriptionText('');
     }
 
     return (
@@ -92,7 +97,7 @@ const Signup = (props) => {
                                 <>
                                   <FiUpload style={{position:'absolute', paddingBottom:'15px'}} className='file__uploader'/>
                                   <p style={{paddingTop:'13px'}}>Upload</p>
-                                  <input type="file" ref={hiddenFileInput} onChange={handleChange} style={{display:'none'}} />
+                                  <input type="file" ref={hiddenFileInput} onChange={onFileChange} style={{display:'none'}} />
                                 </>
                             ) : (
                                 <><img className='preview__img' src={file} alt='preview'/></>
@@ -104,7 +109,7 @@ const Signup = (props) => {
                     <form class="my-form">
                        <textarea className="description-field" value={descriptiontext} onChange={(e) => setDescriptionText(e.target.value)} name="msg" rows="5" cols="50" placeholder="Tell us a little about yourself"></textarea>
                     </form>
-                    <button className='create__btn'>Create Account</button>
+                    <button className='create__btn' onClick={createAccount}>Create Account</button>
                 </div>
             </div>
         </div>
