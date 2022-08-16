@@ -19,15 +19,17 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Signup from './Components/Signup';
 import Collection from './Components/Collection';
 import Profile from './Components/Profile';
+
 import Collectionview from './Components/Collectionview';
 import Collectioncreator from './Components/Collectioncreator';
+
 
 // import the styles
 require('@solana/wallet-adapter-react-ui/styles.css');
 
 function App() {
   // you can use Mainnet, Devnet or Testnet here
-  const solNetwork = WalletAdapterNetwork.Mainnet;
+  const solNetwork = WalletAdapterNetwork.Devnet;
   const endpoint = useMemo(() => clusterApiUrl(solNetwork), [solNetwork]);
   // initialise all the wallets you want to use
   const wallets = useMemo(
