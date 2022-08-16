@@ -9,15 +9,15 @@ const network = clusterApiUrl('devnet');
 const opts = {
     preflightCommitment: 'processed'
 };
+const wallet = useWallet();
 
 export const ProviderContext = React.createContext();
 
-const ConnectionProvider = (children) => {
+const GetProvider = (children) => {
     const [provider, setProvider] = useState(null);
     const [program, setProgram] = useState(null);
     useEffect(() => {
         console.log("Running effect...");
-        const wallet = useWallet();
         const connection = new Connection(network, opts.preflightCommitment);
         const provider = new Provider(connection, wallet, opts.preflightCommitment);
         const program = new Program(idl, programID, provider);
@@ -32,4 +32,4 @@ const ConnectionProvider = (children) => {
     );
 }
 
-export default getProvider;
+export default GetProvider;

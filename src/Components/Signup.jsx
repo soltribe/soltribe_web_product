@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
 import '../Styles/Signup.css';
 import Header from './Header';
 import logo from '../Assets/solomon.png';
@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import {FiUpload } from 'react-icons/fi';
 import {useConnection, useWallet} from '@solana/wallet-adapter-react';
 import * as solanaWeb3 from '@solana/web3.js';
-import idl from '../soltribe.json';
+import idl from '../idl/soltribe.json'
 import {ProviderContext} from '../utils/provider';
 import {
     generateCreatorPDA,
@@ -30,7 +30,7 @@ const Signup = (props) => {
         //console.log(e.target.files);
         if (file) {
             const image = URL.createObjectURL(file);
-            setImage(image);
+            // setImage(image);
             let reader = new FileReader();
             reader.onload = function () {
                 if(reader.result) {
