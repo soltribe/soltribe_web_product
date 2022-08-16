@@ -110,7 +110,7 @@ const Collectioncreator = () => {
                             <>
                               <span><BsCardImage style={{width:'80px', height:'80px', color:'white'}}/></span>
                               <p>Upload your file</p>
-                              <input type="file" ref={hiddenFileInput} onChange={handleChange} style={{display:'none'}} />
+                              <input type="file" ref={hiddenFileInput} onChange={handleChange} accept="image/*,audio/*,video/*" style={{display:'none'}} />
                             </>
                         ) : (
                             <><img src={file} alt='preview'/></>

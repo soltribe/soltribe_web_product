@@ -1,4 +1,4 @@
-import React, {useRef, useState} from 'react';
+import React, {useRef, useState, useContext} from 'react';
 import '../Styles/Signup.css';
 import Header from './Header';
 import logo from '../Assets/solomon.png';
@@ -32,7 +32,7 @@ const Signup = (props) => {
         if (file) {
             const image = URL.createObjectURL(file);
             setFileType(image.type);
-            setImage(image);
+            //setImage(image);
             let reader = new FileReader();
             reader.onload = function () {
                 if(reader.result) {
@@ -78,6 +78,9 @@ const Signup = (props) => {
             console.log(_err);
             // do something here
         }
+        setFile('');
+        setUserName('');
+        setDescriptionText('');
     }
 
     return (
@@ -94,7 +97,7 @@ const Signup = (props) => {
                                 <>
                                   <FiUpload style={{position:'absolute', paddingBottom:'15px'}} className='file__uploader'/>
                                   <p style={{paddingTop:'13px'}}>Upload</p>
-                                  <input type="file" ref={hiddenFileInput} onChange={handleChange} style={{display:'none'}} />
+                                  <input type="file" ref={hiddenFileInput} onChange={onFileChange} style={{display:'none'}} />
                                 </>
                             ) : (
                                 <><img className='preview__img' src={file} alt='preview'/></>
@@ -106,7 +109,7 @@ const Signup = (props) => {
                     <form class="my-form">
                        <textarea className="description-field" value={descriptiontext} onChange={(e) => setDescriptionText(e.target.value)} name="msg" rows="5" cols="50" placeholder="Tell us a little about yourself"></textarea>
                     </form>
-                    <button className='create__btn'>Create Account</button>
+                    <button className='create__btn' onClick={createAccount}>Create Account</button>
                 </div>
             </div>
         </div>
