@@ -1,7 +1,7 @@
 import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import { useWallet, WalletProvider, ConnectionProvider} from '@solana/wallet-adapter-react';
 import {Program,  Provider, web3} from '@project-serum/anchor';
-import idl from '../soltribe.json';
+import idl from '../idl/soltribe.json';
 import React, { useEffect, useState } from 'react';
 
 const programID = new PublicKey(idl.metadata.address);
